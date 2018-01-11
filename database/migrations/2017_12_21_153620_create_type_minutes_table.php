@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAttachmentsTable extends Migration
+class CreateTypeMinutesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateAttachmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('attachments', function (Blueprint $table) {
+        Schema::create('type_minutes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('minute_id');
-            $table->string('archivo');
-            $table->integer('user_id');
-            $table->dateTime('fecha');
+            $table->string('name');
+            $table->string('icon')->default('fa fa-info');
+            $table->string('color');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateAttachmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attachments');
+        Schema::dropIfExists('type_minutes');
     }
 }
